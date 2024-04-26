@@ -29,7 +29,7 @@ network:
     footer: Lütfen AI'nın mükemmel olmadığını ve hata yapabileceğini unutmayın. Verdiğimiz rahatsızlıktan dolayı özür dileriz.
   onboarding:
     embed:
-      title: 👋 Merhaba, {hubName}'e hoş geldiniz!
+      title: '👋 Merhaba, {hubName}''e hoş geldiniz!'
       description: |
         İşleri düzenli tutmak için, sadece bu hub için ayrı bir kanal kullanmanız önerilir. Ancak endişelenmeyin, bunu daha sonra her zaman değiştirebilirsiniz.
 
@@ -37,9 +37,11 @@ network:
       footer: InterChat Network | Version {version}
     inProgress: Zaten {channel}'dan bir hub'a katılma girişimi oldu. Lütfen iptal edin veya tamamlanmasını bekleyin.
 blacklist:
-  button:
-    user: Kara Liste Kullanıcısı
-    server: Kara Liste Sunucusu
+  fields:
+    user: '👤 Blacklist User'
+    userValue: Blacklist user **{user}** from this hub.
+    server: '🏠 Blacklist Server'
+    serverValue: Blacklist server **{server}** from this hub.
   modal:
     reason:
       label: Sebep
@@ -157,7 +159,7 @@ connection:
       profanity: Küfür Filtresi
     footer: Bağlantınızı yönetmek için aşağıdaki düğmeyi ve açılır menüyü kullanın.
   selects:
-    placeholder: 🛠️ Bağlantınızı yönetmek için aşağıdaki seçeneklerden birini seçin.
+    placeholder: '🛠️ Bağlantınızı yönetmek için aşağıdaki seçeneklerden birini seçin.'
 hub:
   notFound: '{emoji} Hub bulunamıyor. Lütfen doğru hub adını girdiğinizden emin olun.'
   notFound_mod: '{emoji} Hub bulunamıyor. Lütfen doğru hub adını girdiğinizden ve hub''ın sahibi veya moderatörü olduğunuzdan emin olun.'
@@ -302,7 +304,7 @@ hub:
       roleSuccess: '{emoji} {type}` türündeki günlükler artık {role}''den bahsedecek!}'
       channelSuccess: '{emoji} Şu andan itibaren `{type}` türündeki günlükler {channel} adresine gönderilecektir!'
       channelSelect: '#️⃣ Yapılandırılacak günlük türünü seçin.'
-      roleSelect: 🏓 Bir günlük tetiklendiğinde bahsedilecek rolü seçin.
+      roleSelect: '🏓 Bir günlük tetiklendiğinde bahsedilecek rolü seçin.'
       reportChannelFirst: '{emoji} Lütfen önce bir günlük kanalı ayarlayın.'
       config:
         title: '{type} Günlüklerini Yapılandırma'
@@ -337,7 +339,7 @@ report:
       input2:
         label: Detaylı Açıklama (Opsiyonel)
         placeholder: Attığınız adımlar. Örn. 1. 2. /help komutunu çalıştırın. 5 saniye bekleyin...
-  submitted: Rapor gönderildi. Raporunuzla ilgili güncellemeleri almak için **[destek sunucusuna]({emoji})** katılın.
+  submitted: 'Rapor gönderildi. Raporunuzla ilgili güncellemeleri almak için **[destek sunucusuna]({emoji})** katılın.'
   bug:
     title: Hata Raporu
     affected: Etkilenen Bileşenler

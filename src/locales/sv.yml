@@ -29,7 +29,7 @@ network:
     footer: Tänk på att AI inte är perfekt och kan göra misstag. Vi beklagar eventuella olägenheter.
   onboarding:
     embed:
-      title: 👋 Hej där, välkommen till {hubName}!
+      title: '👋 Hej där, välkommen till {hubName}!'
       description: |
         För att hålla saker organiserade rekommenderas det att använda en separat kanal för bara för detta nav. Men oroa dig inte, du kan alltid ändra detta senare.
 
@@ -37,9 +37,11 @@ network:
       footer: InterChat Network | Version {version}
     inProgress: Det har redan varit ett försök att gå med i ett nav från {channel}. Avbryt den eller vänta på att den ska slutföras.
 blacklist:
-  button:
-    user: Svartlista
-    server: Svartlista -server
+  fields:
+    user: '👤 Blacklist User'
+    userValue: Blacklist user **{user}** from this hub.
+    server: '🏠 Blacklist Server'
+    serverValue: Blacklist server **{server}** from this hub.
   modal:
     reason:
       label: Anledning
@@ -157,7 +159,7 @@ connection:
       profanity: Språkfilter
     footer: Använd knappen och rullgardinsmenyn nedan för att hantera din anslutning.
   selects:
-    placeholder: 🛠 Välj ett alternativ nedan för att hantera din anslutning.
+    placeholder: '🛠 Välj ett alternativ nedan för att hantera din anslutning.'
 hub:
   notFound: '{emoji} Det går inte att hitta nav. Se till att du har angett rätt navnamn.'
   notFound_mod: '{emoji} Det går inte att hitta nav. Se till att du har angett rätt navnamn och att du är ägaren eller en moderator för navet.'
@@ -302,7 +304,7 @@ hub:
       roleSuccess: '{emoji} Loggar av typ `{type}` kommer nu att nämna {role}!'
       channelSuccess: '{emoji} Loggar av typ `{type}` kommer att skickas till {channel} från nu!'
       channelSelect: '#⃣ Välj vilken typ av logg som ska konfigureras.'
-      roleSelect: 🏓 Välj den roll som ska nämnas när en logg utlöses.
+      roleSelect: '🏓 Välj den roll som ska nämnas när en logg utlöses.'
       reportChannelFirst: '{emoji} Ställ in en logskanal först.'
       config:
         title: Konfigurera `{type}` loggar
@@ -337,7 +339,7 @@ report:
       input2:
         label: Detaljerad beskrivning (valfritt)
         placeholder: Steg du tog. T.ex. 1. Kör /hjälp 2. Vänta i 5 sekunder ...
-  submitted: Rapport inlämnad. Gå med **[Support Server]({emoji})** för att få uppdateringar om din rapport.
+  submitted: 'Rapport inlämnad. Gå med **[Support Server]({emoji})** för att få uppdateringar om din rapport.'
   bug:
     title: Buggrapport
     affected: Påverkade komponenter

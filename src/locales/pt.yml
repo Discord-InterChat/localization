@@ -29,7 +29,7 @@ network:
     footer: Tenha em atenção que a IA não é perfeita e pode cometer erros. Pedimos desculpa por qualquer incómodo causado.
   onboarding:
     embed:
-      title: 👋 Olá, bem-vindo ao {hubName}!
+      title: '👋 Olá, bem-vindo ao {hubName}!'
       description: |
         Para manter as coisas organizadas, recomenda-se a utilização de um canal separado apenas para este hub. Mas não se preocupe, pode sempre alterar isto mais tarde.
 
@@ -37,9 +37,11 @@ network:
       footer: Rede InterChat | Version {version}
     inProgress: Já houve uma tentativa de entrar num hub a partir de {channel}. Por favor, cancele-a ou aguarde que seja concluída.
 blacklist:
-  button:
-    user: Utilizador da lista negra
-    server: Servidor de lista negra
+  fields:
+    user: '👤 Blacklist User'
+    userValue: Blacklist user **{user}** from this hub.
+    server: '🏠 Blacklist Server'
+    serverValue: Blacklist server **{server}** from this hub.
   modal:
     reason:
       label: Motivo
@@ -157,7 +159,7 @@ connection:
       profanity: Filtro de palavrões
     footer: Utilize o botão e a lista pendente abaixo para gerir a sua ligação.
   selects:
-    placeholder: 🛠️ Seleccione uma opção abaixo para gerir a sua ligação.
+    placeholder: '🛠️ Seleccione uma opção abaixo para gerir a sua ligação.'
 hub:
   notFound: '{Não foi possível encontrar o centro. Não foi possível encontrar o centro. Certifica-te de que introduziste o nome correto do centro.'
   notFound_mod: '{Não foi possível encontrar o centro. Não foi possível encontrar o centro. Certifique-se de que introduziu o nome correto do centro e de que é o proprietário ou um moderador do centro.'
@@ -337,7 +339,7 @@ report:
       input2:
         label: Descrição pormenorizada (facultativa)
         placeholder: Passos que deu. Por exemplo, 1. Executar /help 2. Aguarde 5 segundos...
-  submitted: Relatório enviado. Junte-se ao **[servidor de suporte]({emoji})** para receber actualizações sobre o seu relatório.
+  submitted: 'Relatório enviado. Junte-se ao **[servidor de suporte]({emoji})** para receber actualizações sobre o seu relatório.'
   bug:
     title: Relatório de erros
     affected: Componentes afectados

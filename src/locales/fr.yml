@@ -29,7 +29,7 @@ network:
     footer: Veuillez noter que l'IA n'est pas parfaite et qu'elle peut faire des erreurs. Nous vous présentons nos excuses pour les désagréments causés.
   onboarding:
     embed:
-      title: 👋 Bonjour, bienvenue sur {hubName} !
+      title: '👋 Bonjour, bienvenue sur {hubName} !'
       description: |
         Pour garder les choses organisées, il est recommandé d'utiliser un canal séparé uniquement pour ce hub. Mais ne vous inquiétez pas, vous pouvez toujours changer cela plus tard.
 
@@ -37,9 +37,11 @@ network:
       footer: InterChat Network | Version {version}
     inProgress: Il y a déjà eu une tentative de rejoindre un hub de {channel}. Veuillez l'annuler ou attendre qu'elle se termine.
 blacklist:
-  button:
-    user: Liste noire d'utilisateurs
-    server: Serveur de liste noire
+  fields:
+    user: '👤 Blacklist User'
+    userValue: Blacklist user **{user}** from this hub.
+    server: '🏠 Blacklist Server'
+    serverValue: Blacklist server **{server}** from this hub.
   modal:
     reason:
       label: Raison
@@ -157,7 +159,7 @@ connection:
       profanity: Filtre de grossièretés
     footer: Utilisez le bouton et le menu déroulant ci-dessous pour gérer votre connexion.
   selects:
-    placeholder: 🛠️ Sélectionnez une option ci-dessous pour gérer votre connexion.
+    placeholder: '🛠️ Sélectionnez une option ci-dessous pour gérer votre connexion.'
 hub:
   notFound: '{emoji} Impossible de trouver le hub. Veuillez vous assurer que vous avez saisi le nom correct du hub.'
   notFound_mod: '{emoji} Impossible de trouver le hub. Veuillez vous assurer que vous avez saisi le nom correct du hub et que vous êtes le propriétaire ou un modérateur du hub.'
@@ -302,7 +304,7 @@ hub:
       roleSuccess: '{emoji} Les journaux de type `{type}` mentionnent désormais {role} !'
       channelSuccess: '{emoji} Les logs de type `{type}` seront désormais envoyés à {channel} !'
       channelSelect: '#️⃣ Sélectionnez le type de journal à configurer.'
-      roleSelect: 🏓 Sélectionnez le rôle à mentionner lorsqu'un journal est déclenché.
+      roleSelect: '🏓 Sélectionnez le rôle à mentionner lorsqu''un journal est déclenché.'
       reportChannelFirst: '{emoji} Veuillez d''abord définir un canal de journalisation.'
       config:
         title: Configurer les journaux `{type}``.
@@ -337,7 +339,7 @@ report:
       input2:
         label: Description détaillée (facultatif)
         placeholder: Les étapes que vous avez franchies. Par exemple, 1. Exécutez /help 2. Attendez 5 secondes...
-  submitted: Rapport soumis. Rejoignez le **[serveur de support]({emoji})** pour recevoir des mises à jour sur votre rapport.
+  submitted: 'Rapport soumis. Rejoignez le **[serveur de support]({emoji})** pour recevoir des mises à jour sur votre rapport.'
   bug:
     title: Rapport de bug
     affected: Composants concernés
