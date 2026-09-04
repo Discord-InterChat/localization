@@ -1376,6 +1376,9 @@ hub:
       transfer:
         label: Transfer Ownership
         description: Transfer your hub's ownership to another person
+      delete:
+        label: Delete hub
+        description: Permanently delete this hub and disconnect all servers
       announcements:
         label: Scheduled Announcements
         description: Configure automatic scheduled announcements for your hub
