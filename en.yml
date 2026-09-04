@@ -1074,9 +1074,12 @@ hub:
   lock:
     announceTitle: Hub Locked
     announceDescription: "This hub has been locked by a moderator.\n\nOnly moderators can send messages now."
+    successTitle: Hub Locked
+    successDescription: "**{hub}** has been locked. New members cannot join and messages are paused."
   unlock:
     announceTitle: Hub Unlocked
     announceDescription: "This hub has been unlocked. Invites and messages are now enabled."
+    successTitle: Hub Unlocked
     successDescription: "**{hub}** has been unlocked. New members can now join."
   announcement:
     webhookUsername: "{hubName} | Hub Announcement"
@@ -1355,9 +1358,9 @@ hub:
       rules:
         label: Hub Rules
         description: Manage your hub's community rules and guidelines
-      team:
-        label: Team Management
-        description: Manage your hub's team and staff permissions
+      staff:
+        label: Staff
+        description: Manage your hub's staff and roles
       modules:
         label: Modules
         description: Enable or disable additional modules within your hub
