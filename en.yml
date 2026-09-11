@@ -427,6 +427,96 @@ appeal:
     notFoundOrDeleted: Appeal not found or has been deleted.
     updateFailed: Failed to update appeal. Please try again later.
 
+automod:
+  actionsDefault: Use the Automod default
+  actionsDefaultHint: Set on the Automod page
+  actionsLabel: What should happen on a match?
+  actionsTitle: What happens?
+  addWords: Add words
+  applyDraft: Apply my draft
+  confirmChange: Confirm change
+  confirmEffect: This takes effect immediately for everyone in {scope}.
+  confirmOff: Keep it off for now
+  confirmOn: Turn on now
+  confirmTitle: Turn on "{name}"?
+  conflictBanner: ⚠️ Someone else edited Automod while you were working. Your change was kept as a draft.
+  conflictCurrent: 'Latest version: {rules} rules, {patterns} words'
+  conflictDraft: 'Your draft: {rules} rules, {patterns} words'
+  conflictNote: Applying replaces all rules with your draft.
+  conflictReviewTitle: Compare my changes
+  conflictToast: Someone else edited Automod just now. The latest version was loaded, your change was not applied. Review and try again.
+  deleteConfirm: Delete "{name}"?
+  detailsDescription: Description
+  detailsName: Name
+  detailsReason: Message shown when caught
+  detailsReasonHint: Shown to the user when this rule catches them.
+  detailsTitle: Name and reason
+  dialLabel: When a rule catches something…
+  dialMixed: Mixed (set per rule)
+  disableRule: Turn off "{name}"?
+  disabled: Disabled
+  discard: Discard
+  discardBanner: Your edits are not applied yet.
+  discardConfirm: Discard changes
+  discardDraft: Discard my draft
+  discardTitle: Discard unsaved changes?
+  durationError: Use a duration like 30m, 1h or 2d.
+  durationLabel: '{action} duration'
+  durationPlaceholder: e.g. 30m, 1h, 2d
+  editActions: What happens
+  editDetails: Name & reason
+  editSurfaces: Where to check
+  enableRule: Turn on "{name}"?
+  enabled: Enabled
+  errorTitle: ⚠️ Automod could not be loaded.
+  keepEditing: Keep editing
+  newRule: New rule
+  newRuleModalTitle: New rule
+  newRuleName: Name
+  noRules: No rules yet. Create the first rule to begin.
+  page: Page {current}/{total}
+  parameters: Action settings
+  pause: Pause Automod
+  pauseConfirm: Pause Automod? Rules stop being enforced until you resume.
+  pickRule: Pick a rule to change…
+  rejected: 'Automod rejected this change: {error}'
+  removeSelect: Select words to remove…
+  removeTitle: Remove words
+  removeWords: Remove words
+  replaceAll: Replace all
+  replacementLabel: Safe replacement name
+  replacesNote: This replaces the whole Automod configuration.
+  resume: Resume Automod
+  resumeConfirm: Turn Automod back on?
+  reviewDraft: Compare my changes
+  ruleDescription: '{status} · {count} words'
+  ruleTitle: ✍️ {name} · {status}
+  rulesOn: '{enabled} of {total} rules on'
+  serverNote: Warns, mutes and bans are hub tools. They apply when this server joins a hub.
+  statusOff: 'Off'
+  statusOn: 'On'
+  surfacesLabel: Where should these be checked?
+  surfacesTitle: Where to check
+  test: Test
+  testCaught: '⚠️ Would be caught by "{rule}". Consequence: {actions}.'
+  testClean: ✅ Nothing would be caught.
+  testDisclaimer: Preview only. The final decision is made by the enforcement service.
+  testEmpty: No rules are on yet, so nothing would be caught.
+  testFor: 🧪 Test result for "{message}"
+  testLabel: Type a message like a user would send
+  testModalTitle: Test Automod
+  testNoSurface: This rule does not check message content, so a message test has nothing to look at.
+  testRule: Test this rule
+  title: 🛡️ Automod · {scope}
+  turnOff: Turn off
+  turnOn: Turn on
+  unsaved: ⚠️ Unsaved changes
+  wordSlots: '{used} of {limit} word slots used'
+  wordsCount: '{count} words'
+  wordsHint: Use * at the start or end to match partly. Phrases go in "double quotes". Maximum 4000 characters.
+  wordsLabel: Words to catch, one per line
+  wordsReplaceTitle: Replace all words
+  wordsTitle: Add words
 report:
   title: Report Message
   footer: Reports help keep InterChat safe for everyone
@@ -837,8 +927,10 @@ welcomeMessage:
 infractions:
   description: View infractions in a hub, filtered by user or server.
   buttons:
-    userInfractions: User Infractions
-    serverInfractions: Server Infractions
+    allInfractions: All
+    userInfractions: Users
+    serverInfractions: Servers
+    clearFilter: Clear filter
   titles:
     base: Infractions · {hubName}
     userList: User Infractions · {hubName}
@@ -847,6 +939,7 @@ infractions:
     serverSpecific: Infractions for Server {serverId} · {hubName}
   descriptions:
     base: Select which infractions to view for this hub.
+    empty: No moderation records found.
     userListEmpty: No user infractions found for this hub.
     serverListEmpty: No server infractions found for this hub.
   labels:
@@ -1108,6 +1201,33 @@ hub:
       title: Disconnect Server
     errors:
       noPermission: You must be a hub admin to view this.
+  history:
+    title: "History — {hubName}"
+    subtitle: Choose what to review
+    view: View
+    retry: Retry
+    tabs:
+      servers: Servers
+      config: Config
+      activity: Activity
+    cards:
+      servers: Servers
+      config: Config changes
+      activity: Activity
+    descriptions:
+      servers: Connected servers and health
+      config: Settings, staff and rules
+      activity: Joins, leaves and renames
+    requires:
+      manageConnections: Requires Manage Connections
+      viewLogs: Requires View Logs
+    activity:
+      title: "Server activity — {hubName}"
+      empty: No server activity yet. Joins, leaves and renames for this hub's servers will show up here.
+      error: Server activity is temporarily unavailable.
+      renamed: Renamed
+      newOwner: New owner
+      left: Left InterChat
   disconnect:
     title: Disconnected!
     description: Disconnected from hub.
