@@ -134,32 +134,20 @@ common:
 
 about:
   title: About InterChat
-  description: |
-    InterChat is the all-in-one cross-server chatting provider on Discord! From 1-on-1 “userphone” calls/groupcalls to "always-on" hub spaces managed by you.
+  tagline: Servers, connected.
+  description: |-
+    InterChat links Discord servers together, so people from different servers can talk to each other.
 
-    ## What do we offer?
-    - **Hubs:** persistent cross-server rooms with AutoMod, granular moderator roles, audit logs, announcements (+ scheduling), public discovery, custom badges, leaderboards, a web dashboard, etc.
-    - **Calls:** one-to-one or group bridges with per-server profanity filters
-    - **Leaderboards:** compete for top spot across hubs or calls
-    - **Moderation tools:** dedicated commands for hub staff & InterChat staff
-    - **Modern web dashboard:** manage everything from the browser
-    - **Earnable badges:** show off your activity in calls & hubs
-    ## Who is InterChat for?
-    - The bored and the curious, anyone who wants random, lively conversations.
-    - Server owners who want to build lasting bridges (gaming clans, study groups, partnerships, etc.).
-    ## Getting Started:
-    ### Calls
-    Use `/call` to instantly connect your channel with another server.
-    ### Hubs
-    1. Choose a channel you want linked **at all times**.
-    2. Browse `/hub directory` to find a hub you like (they're made by users just like you!).
-    3. Click **Join**, you're now connected to all servers in that hub.
-      Already know the hub? Use `/hub connect` with its name or invite code.
-    ## Useful Links
+    **Hubs** are shared channels that many servers post in. The chat never goes quiet.
 
-  closingText: -# Made with ❤️ by InterChat Development
+    **Calls** connect you privately with one other person, for as long as you both want.
+  examples: |-
+    > **/call**: talk to someone new right now
+    > **/hub directory**: join a hub and chat with many servers
+
+  closingText: Made by the InterChat team.
   buttons:
-    shardInfo: Shard Info
+    shardInfo: Shard info
 
 botLanding:
   title: Your server, connected. 🌐 Let's go cross-server!
@@ -266,16 +254,15 @@ setup:
   skipped: No problem. You can start any time with `/call` or `/hub directory`.
 
 help:
-  title: InterChat Commands
-  description: Explore our wide range of commands to help you connect with others.
-  name: Help
-  browserDescription: Start here if you are new, or choose a category to browse every available command.
+  title: Help
+  description: Explore every command InterChat has.
+  browserDescription: Start here if you're new. Everything below works in servers and DMs.
   gettingStarted: Getting started
   categorySummary: "{count} command(s) · page {page}/{pages}"
   select:
     category: Choose a command category
   buttons:
-    view: View
+    view: Open
     home: Home
   expired:
     title: Help session expired
@@ -1482,15 +1469,20 @@ messageInfo:
 
 leaderboard:
   title: Leaderboard
-  noActivity: No Activity
-  noActivityDescription: No activity recorded for this period.
+  noActivity: No activity yet
+  noActivityDescription: Nothing recorded for this period. Be the first!
+  users: Users
+  servers: Servers
+  streaks: Streaks
   messages: messages
-  calls: calls
-  votes: votes
-  streak: day streak
+  unit:
+    calls: calls
+    votes: votes
+    streak: day streak
+  calls: Calls
+  votes: Votes
   selectPeriod: Select time period
-  selectType: Select leaderboard type
-  yourRank: Your Rank
+  selectType: Show…
   periods:
     thisMonth: This Month
     thisMonth.description: Current month statistics
@@ -1501,14 +1493,12 @@ leaderboard:
   buttons:
     users: Users
     servers: Servers
-    calls: Calls
-    votes: Votes
-    streaks: Streaks
   errors:
     alreadyShowingUsers: Already showing users leaderboard.
     alreadyShowingServers: Already showing servers leaderboard.
     alreadyShowingPeriod: Already showing this time period.
-    alreadyShowingType: Already showing this leaderboard type.
+    alreadyShowingType: Already showing that leaderboard.
+    unavailable: Leaderboards are unavailable right now. Please try again in a moment.
 
 profile:
   achievements:
@@ -1573,26 +1563,45 @@ my:
       shared: Calls and Hub messages share one streak.
 
 stats:
-  title: InterChat Statistics
-  fields:
-    bot: Bot
-    botValue: "> **Uptime:** <t:{uptime}:R>\n> **Servers:** {servers}\n> **Members:** {members}"
-    system: System
-    systemValue: "> **OS:** {os}\n> **Python:** {python}\n> **CPU Cores:** {cores}\n> **RAM Usage:** {ram}mb"
-  footer: InterChat | Version {version}
+  title: InterChat
+  description: Live numbers from across the network.
+  network: Right now
+  networkValue: "> **Servers** {servers}\n> **Members** {members}\n> **Hubs** {hubs}"
+  bot: This bot
+  botValue: "> **Ping** {ping}ms · **Uptime** <t:{uptime}:R> · **v{version}**"
+  footer: InterChat • v{version}
   shard:
-    title: Shard Information
+    title: Shard information
+    row: "> **Shard #{id}**: {status}\n> **Ping** {ping}ms · **Servers** {guilds}"
+    system: "> **OS** {os}\n> **Python** {python}\n> **CPU cores** {cores}\n> **RAM** {ram}MB"
     statusReady: Ready
     statusProvisioning: Provisioning
-    current: "Current Shard: {id}"
+    current: "You are on shard #{id}"
 
 invite:
-  title: Hey!
-  description: Thanks for choosing InterChat. Need help? Join our support server.
+  title: Add InterChat to your server
+  description: Free, and takes about a minute.
+  steps: |-
+    > **1.** Press **Add to Server** below
+    > **2.** Pick your server
+    > **3.** Run `/setup` in the channel you want to use
+  footer: You need **Manage Server** on the server you pick.
 
 rules:
   title: InterChat Rules
-  body: Keep things respectful, safe, and appropriate. These rules apply anywhere you're using InterChat.
+  body: These rules apply everywhere you use InterChat, in hubs and calls alike.
+  tabs:
+    short: The rules
+    full: Full guidelines
+    moderation: Moderation
+  short: |-
+    > **1.** Treat people with respect. If someone says stop, stop.
+    > **2.** Don't attack people for who they are. No slurs.
+    > **3.** No threats, and don't share private information.
+    > **4.** No sexual content. Never involving minors.
+    > **5.** No spam, and don't ruin the conversation.
+    > **6.** Don't evade bans or send fake reports.
+    > **7.** Names must follow these rules too.
   rules:
     title: The Rules
     commonSense: |
@@ -1646,6 +1655,49 @@ rules:
     ### The punishment ladder is:
     ```Warn → 6h → 24h → 7d → 14d → 30d → Permanent```
     *Punishments may not always be linear, and often depend on the severity and context of the violation. Normal infractions older than 90 days should generally automatically expire and not increase a punishment.*
+
+startHere:
+  nav:
+    help: Help
+    invite: Invite
+    dashboard: Dashboard
+    stats: Stats
+    about: About
+  descriptions:
+    help: Explore every command InterChat has.
+    about: What InterChat is, and how it works.
+    invite: Add InterChat to your server.
+    rules: Read the rules for hubs and calls.
+    stats: See live InterChat numbers.
+    feedback: Send a suggestion or a bug report.
+    report: Learn how to report a message.
+    dashboard: Open the web dashboard.
+    leaderboard: See the top callers and servers.
+    prefix: Change this server's command prefix.
+    vote: Vote for InterChat and earn a badge.
+
+dashboard:
+  description: Manage your hubs, servers and calls from your browser. No commands needed.
+
+prefix:
+  updatedTitle: Prefix updated
+  updated: This server now uses `{prefix}`. Try `/help`.
+  resetTitle: Prefix reset
+  reset: This server is back to the default prefix `{prefix}`.
+  error:
+    guildOnly: Prefixes are per-server, so this only works inside a server.
+    tooLong: A prefix can be at most 10 characters long.
+
+vote:
+  title: Vote for InterChat
+  description: It takes 10 seconds, and it helps more servers find us.
+  rewards: |-
+    ## What you get for 12 hours
+    > **Server emojis**: use any emoji in your messages
+    > **Voter badge**: shown on your InterChat profile
+  alreadyVoted: |-
+    ## 🎉 Thanks for voting!
+    You can vote again **{next}**.
 
 services:
   hub:
@@ -1748,31 +1800,32 @@ blacklist:
 
 commands:
   suggestion:
-    title: Suggestion / Bug Report
+    title: Send feedback
     overview:
-      label: Overview
-      placeholder: Briefly describe your suggestion or bug...
+      label: Summary
+      placeholder: "One line: what went wrong, or what you'd like"
     description:
       label: *label_description
-      placeholder: Provide full details of your suggestion or bug...
+      placeholder: "Tell us what happened, step by step"
     category:
-      label: Category
+      label: "What's this about?"
       options:
-        bug: Bug Report
-        bugDesc: Report an issue you've found
-        suggestion: Suggestion
-        suggestionDesc: Suggest a new feature or improvement
+        bug: Something is broken
+        bugDesc: Report a problem you ran into
+        suggestion: I have an idea
+        suggestionDesc: Suggest a feature or an improvement
     errorId:
-      label: Error ID (if applicable)
-      placeholder: Paste the error ID here...
+      label: Error ID (optional)
+      placeholder: Paste the error ID from the error message
     messages:
-      submitted: Your feedback has been received and will be reviewed.
-      success: "{tick} Thank you for your feedback! It has been submitted successfully."
-    errors:
-      internal: An error occurred while submitting your feedback. Please try again.
+      success: "{tick} Thanks! Your feedback was sent to the InterChat team."
   report:
-    title: How to Report
-    description: "Right-click on a message and select **Apps → Report**."
+    title: How to report a message
+    description: |-
+      > **1.** Right-click the message
+      > **2.** Go to **Apps → Report**
+      > **3.** Pick a reason. We'll send it to the right team
+    footer: Reports go to the hub's moderators, or to InterChat staff.
     loadingGif: The GIF above may take a moment to load.
 
 userphone:
