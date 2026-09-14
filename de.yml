@@ -1788,6 +1788,21 @@ vote:
   alreadyVoted: |-
     ## 🎉 Thanks for voting!
     You can vote again **{next}**.
+  thanks:
+    title: Thank you for voting!
+    intro: Your vote is how more servers find InterChat. Genuinely, thanks for taking the 10 seconds.
+    activeHeading: Active for the next 12 hours
+    emojiTitle: Server emojis
+    emojiBody: Use emoji from any server in your messages.
+    roleTitle: Voter role
+    roleBody: Granted in the support server, removed when your vote lapses, so re-vote to keep it.
+    keepHeading: Yours to keep
+    badgeTitle: Voter badge
+    badgeBody: Now on your InterChat profile.
+    freezeTitle: A streak freeze
+    freezeBody: Banked against a missed day, up to 2.
+    supportButton: Support server
+    footer: "Vote #{count} · next vote available {next}"
 services:
   hub:
     validation:
