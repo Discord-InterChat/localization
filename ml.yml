@@ -92,7 +92,7 @@ common:
     notImplemented: ഇതുവരെ നടപ്പിലാക്കിയിട്ടില്ല.
     defaultSuccess: Action completed successfully.
     actionCancelled: Action cancelled.
-    hubNotFound: ഹബ് കണ്ടെത്തിയില്ല. ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.
+    hubNotFound: "ഹബ് കണ്ടെത്തിയില്ല. ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക."
     serverNotFound: സെർവർ കണ്ടെത്തിയില്ല.
     userNotFound: ഉപയോക്താവിനെ കണ്ടെത്തിയില്ല.
     notSpecified: വ്യക്തമാക്കിയിട്ടില്ല
@@ -133,31 +133,19 @@ common:
     invalidId: "{cross} Please provide a valid User ID or Server ID."
 about:
   title: ഇന്റർചാറ്റിനെക്കുറിച്ച്
-  description: |
-    InterChat is the all-in-one cross-server chatting provider on Discord! From 1-on-1 “userphone” calls/groupcalls to "always-on" hub spaces managed by you.
+  tagline: Servers, connected.
+  description: |-
+    InterChat links Discord servers together, so people from different servers can talk to each other.
 
-    ## What do we offer?
-    - **Hubs:** persistent cross-server rooms with AutoMod, granular moderator roles, audit logs, announcements (+ scheduling), public discovery, custom badges, leaderboards, a web dashboard, etc.
-    - **Calls:** one-to-one or group bridges with per-server profanity filters
-    - **Leaderboards:** compete for top spot across hubs or calls
-    - **Moderation tools:** dedicated commands for hub staff & InterChat staff
-    - **Modern web dashboard:** manage everything from the browser
-    - **Earnable badges:** show off your activity in calls & hubs
-    ## Who is InterChat for?
-    - The bored and the curious, anyone who wants random, lively conversations.
-    - Server owners who want to build lasting bridges (gaming clans, study groups, partnerships, etc.).
-    ## Getting Started:
-    ### Calls
-    Use `/call` to instantly connect your channel with another server.
-    ### Hubs
-    1. Choose a channel you want linked **at all times**.
-    2. Browse `/hub directory` to find a hub you like (they're made by users just like you!).
-    3. Click **Join**, you're now connected to all servers in that hub.
-      Already know the hub? Use `/hub connect` with its name or invite code.
-    ## Useful Links
-  closingText: '-# Made with ❤️ by InterChat Development'
+    **Hubs** are shared channels that many servers post in. The chat never goes quiet.
+
+    **Calls** connect you privately with one other person, for as long as you both want.
+  examples: |-
+    > **/call**: talk to someone new right now
+    > **/hub directory**: join a hub and chat with many servers
+  closingText: Made by the InterChat team.
   buttons:
-    shardInfo: ഷാർഡ് വിവരം
+    shardInfo: Shard info
 botLanding:
   title: Your server, connected. 🌐 Let's go cross-server!
   description: |
@@ -181,21 +169,166 @@ botLanding:
 
     -# Made with ❤️ by InterChat Development
 setup:
+  welcome:
+    title: Welcome to InterChat 👋
+    description: |
+      I connect this server to people and communities across Discord.
+
+      A server manager can choose a channel and get the first conversation running in a few clicks.
+    promise: "**No command list. No webhook setup. I’ll handle the technical work.**"
+  dm:
+    title: InterChat needs a channel
+    description: "I joined **{server}**, but I couldn’t find a channel where I can post the setup guide."
+    instructions: Open the server, let InterChat **View Channel** and **Send Messages** somewhere, then run `/setup`.
+  home:
+    title: "Let’s get {server} talking"
+    description: Choose the result you want. I’ll walk you through the rest and check everything before making changes.
+    resume: You can reopen this guide any time with `/setup`.
+  goals:
+    call:
+      title: Meet another server now
+      description: Start a temporary, private 1-on-1 text chat.
+      button: Start a call
+    join:
+      title: Join a community
+      description: Connect one channel to a Hub that stays open.
+      button: Find a Hub
+    create:
+      title: Build your own community
+      description: Create a Hub, choose who can find it, and connect a channel.
+      button: Create a Hub
+  channel:
+    placeholder: Choose a text channel
+    createPlaceholder: Choose a channel to connect
+    callTitle: Where should the call happen?
+    callDescription: Pick the channel where people will chat. I’ll create and manage the webhook automatically.
+    joinTitle: Which channel should join the Hub?
+    joinDescription: Messages in this channel will be shared with the Hub you choose next.
+    selected: "I’ll connect {channel} when the Hub is ready."
+  permissions:
+    title: One permission fix needed
+    description: "I’m missing these permissions in {channel}:"
+    instructions: Open the channel settings, grant these permissions to InterChat, then press **Check again**.
+    recheck: Check again
+    chooseAnother: Choose another channel
+  call:
+    readyTitle: Ready to meet another server
+    readyDescription: "{channel} passed every check. Nothing will be posted elsewhere."
+    whatHappens: I’ll start matchmaking and post the call controls in that channel. You can leave any time with `/hangup`.
+    start: Start matching
+    startedTitle: Your call is live
+    startedDescription: "I started matchmaking in {channel}. Head there and say hello when another server joins."
+  create:
+    title: Name your new Hub
+    nameLabel: Hub name
+    nameDescription: Pick a short, unique name people will recognize.
+    namePlaceholder: Gaming Lounge
+    taglineLabel: One-line description
+    taglineDescription: Tell people what this community is for.
+    taglinePlaceholder: A relaxed place to meet other gaming servers
+  directory:
+    connecting: "Choose a Hub below. I’ll connect it to {channel}."
+  errors:
+    serverOnly: Setup only works inside a server.
+    managerRequired: You need **Manage Server** or **Manage Channels** to set up InterChat here.
+    manageChannelsRequired: You need **Manage Channels** to connect or create a Hub. You can still start a Call.
+    textChannelRequired: Choose a standard server text channel.
+    callsUnavailable: Calls are still starting up. Try again in a few seconds.
   select:
     placeholder: ഒരു ഭാഷ തിരഞ്ഞെടുക്കുക
   locale:
     successDescription: "{tick} നിങ്ങളുടെ ഭാഷ ഇതായി സജ്ജീകരിച്ചിരിക്കുന്നു **{locale_name}**"
   buttons:
+    tryCallNow: Try a Call Now
     getStarted: സജ്ജീകരണ വിസാർഡ് ആരംഭിക്കുക
     connectHere: Connect Here
     createHub: ഹബ് സൃഷ്ടിക്കുക
     discoverHubs: പബ്ലിക് ഹബ്ബുകൾ കണ്ടെത്തുക
     useDefault: ഡിഫോൾട്ട് ഉപയോഗിക്കുക
     skipForNow: തൽക്കാലം ഒഴിവാക്കുക
+  skipped: No problem. You can start any time with `/call` or `/hub directory`.
 help:
-  title: ഇന്റർചാറ്റ് കമാൻഡുകൾ
-  description: Explore our wide range of commands to help you connect with others.
-  name: സഹായം
+  title: Help
+  description: Explore every command InterChat has.
+  browserDescription: Start here if you're new. Everything below works in servers and DMs.
+  gettingStarted: Getting started
+  categorySummary: "{count} command(s) · page {page}/{pages}"
+  select:
+    category: Choose a command category
+  buttons:
+    view: Open
+    home: Home
+  expired:
+    title: Help session expired
+    description: Run {command} again to open a fresh command guide.
+    button: Expired
+  categories:
+    startHere: Start Here
+    calls: Calls & Social
+    hubs: Hubs
+    account: Account
+    server: Server Setup
+    moderation: മോഡറേഷൻ
+    safety: Safety
+    other: Other
+  commandTypes:
+    hybrid: Hybrid
+    prefix: Prefix
+    slash: Slash
+  fields:
+    slashUsage: Slash usage
+    prefixUsage: Prefix usage
+    commandType: Command type
+    aliases: Aliases
+    userPermissions: User permissions
+    botPermissions: Bot permissions
+    hubPermission: Hub permission
+    availability: Availability
+    subcommands: Subcommands
+    options: Options
+    examples: Examples
+  availability:
+    serverOnly: Server channels only
+    nsfwOnly: NSFW channels only
+  option:
+    required: required
+    optional: optional
+    default: Default
+    choices: Choices
+    range: Range
+    length: Length
+    channels: Channels
+    autocomplete: "Autocomplete: enabled"
+    to: to
+  types:
+    subcommand: Subcommand
+    subcommandGroup: Subcommand group
+    string: String
+    integer: Integer
+    boolean: Boolean
+    user: ഉപയോക്താവ്
+    member: മെമ്പർ
+    channel: Channel
+    textChannel: Text channel
+    voiceChannel: Voice channel
+    role: Role
+    mentionable: Mentionable
+    number: Number
+    attachment: Attachment
+  recovery:
+    tooManyArguments: Too many arguments were provided. Remove the extra values and try again.
+    badArgument: One of the arguments could not be understood. Check its type and try again.
+    parsingError: The command arguments could not be parsed. Check the usage below and try again.
+    userPermissions: You need {permissions} permission(s) to run this command.
+    botPermissions: I need {permissions} permission(s) to run this command.
+    serverOnly: This command can only be used inside a server.
+    missingRole: You do not have the role required to run this command.
+    missingSubcommand: Choose one of the subcommands listed below.
+    unknownSubcommand: "Unknown subcommand: `{subcommand}`. Choose one of the available subcommands below."
+    hubPermission: "{error} Check the hub permission listed below."
+    invalidInput: "{error} Check the accepted argument types and choices below."
+    commandNotFound: That command or subcommand was not found. Here is the closest available help page.
+    generic: The command could not be used. Check the usage and requirements below.
 preferences:
   title: ഉപയോക്തൃ മുൻഗണനകൾ
   description: Edit your personal global settings.
@@ -215,8 +348,8 @@ preferences:
     category: ഒരു വിഭാഗം തിരഞ്ഞെടുക്കുക
   badges:
     title: "മുൻഗണനകൾ: ബാഡ്ജുകൾ"
-    description: Your badges are now **{status}** within your messages.
-    currentDescription: Currently your badges are **{status}** within your messages.
+    description: Your badges are now **{status}** on messages, leaderboards, and your profile.
+    currentDescription: Currently your badges are **{status}** on messages, leaderboards, and your profile.
     visible: ദൃശ്യമാണ്
     hidden: മറച്ചിരിക്കുന്നു
   voteReminders:
@@ -285,10 +418,100 @@ appeal:
     recordFailed: "തീരുമാനം രേഖപ്പെടുത്തുന്നതിൽ പരാജയപ്പെട്ടു: {error}"
     notFoundOrDeleted: അപ്പീൽ കണ്ടെത്തിയില്ല അല്ലെങ്കിൽ ഇല്ലാതാക്കി.
     updateFailed: അപ്പീൽ അപ്ഡേറ്റ് ചെയ്യാനായില്ല. പിന്നീട് വീണ്ടും ശ്രമിക്കുക.
+automod:
+  actionsDefault: Use the Automod default
+  actionsDefaultHint: Set on the Automod page
+  actionsLabel: What should happen on a match?
+  actionsTitle: What happens?
+  addWords: Add words
+  applyDraft: Apply my draft
+  confirmChange: Confirm change
+  confirmEffect: This takes effect immediately for everyone in {scope}.
+  confirmOff: Keep it off for now
+  confirmOn: Turn on now
+  confirmTitle: Turn on "{name}"?
+  conflictBanner: '⚠️ Someone else edited Automod while you were working. Your change was kept as a draft.'
+  conflictCurrent: 'Latest version: {rules} rules, {patterns} words'
+  conflictDraft: 'Your draft: {rules} rules, {patterns} words'
+  conflictNote: Applying replaces all rules with your draft.
+  conflictReviewTitle: Compare my changes
+  conflictToast: Someone else edited Automod just now. The latest version was loaded, your change was not applied. Review and try again.
+  deleteConfirm: Delete "{name}"?
+  detailsDescription: വിവരണം
+  detailsName: പേര്
+  detailsReason: Message shown when caught
+  detailsReasonHint: Shown to the user when this rule catches them.
+  detailsTitle: Name and reason
+  dialLabel: When a rule catches something…
+  dialMixed: Mixed (set per rule)
+  disableRule: Turn off "{name}"?
+  disabled: Disabled
+  discard: Discard
+  discardBanner: Your edits are not applied yet.
+  discardConfirm: Discard changes
+  discardDraft: Discard my draft
+  discardTitle: Discard unsaved changes?
+  durationError: Use a duration like 30m, 1h or 2d.
+  durationLabel: '{action} duration'
+  durationPlaceholder: e.g. 30m, 1h, 2d
+  editActions: What happens
+  editDetails: Name & reason
+  editSurfaces: Where to check
+  enableRule: Turn on "{name}"?
+  enabled: Enabled
+  errorTitle: '⚠️ Automod could not be loaded.'
+  keepEditing: Keep editing
+  newRule: New rule
+  newRuleModalTitle: New rule
+  newRuleName: പേര്
+  noRules: No rules yet. Create the first rule to begin.
+  page: പേജ് {current}/{total}
+  parameters: Action settings
+  pause: Pause Automod
+  pauseConfirm: Pause Automod? Rules stop being enforced until you resume.
+  pickRule: Pick a rule to change…
+  rejected: 'Automod rejected this change: {error}'
+  removeSelect: Select words to remove…
+  removeTitle: Remove words
+  removeWords: Remove words
+  replaceAll: Replace all
+  replacementLabel: Safe replacement name
+  replacesNote: This replaces the whole Automod configuration.
+  resume: Resume Automod
+  resumeConfirm: Turn Automod back on?
+  reviewDraft: Compare my changes
+  ruleDescription: '{status} · {count} words'
+  ruleTitle: '✍️ {name} · {status}'
+  rulesOn: '{enabled} of {total} rules on'
+  serverNote: Warns, mutes and bans are hub tools. They apply when this server joins a hub.
+  statusOff: 'Off'
+  statusOn: 'On'
+  surfacesLabel: Where should these be checked?
+  surfacesTitle: Where to check
+  test: Test
+  testCaught: '⚠️ Would be caught by "{rule}". Consequence: {actions}.'
+  testClean: '✅ Nothing would be caught.'
+  testDisclaimer: Preview only. The final decision is made by the enforcement service.
+  testEmpty: No rules are on yet, so nothing would be caught.
+  testFor: '🧪 Test result for "{message}"'
+  testLabel: Type a message like a user would send
+  testModalTitle: Test Automod
+  testNoSurface: This rule does not check message content, so a message test has nothing to look at.
+  testRule: Test this rule
+  title: '🛡️ Automod · {scope}'
+  turnOff: Turn off
+  turnOn: Turn on
+  unsaved: '⚠️ Unsaved changes'
+  wordSlots: '{used} of {limit} word slots used'
+  wordsCount: '{count} words'
+  wordsHint: Use * at the start or end to match partly. Phrases go in "double quotes". Maximum 4000 characters.
+  wordsLabel: Words to catch, one per line
+  wordsReplaceTitle: Replace all words
+  wordsTitle: Add words
 report:
   title: റിപ്പോർട്ട് സന്ദേശം
   footer: ഇന്റർചാറ്റ് എല്ലാവർക്കും സുരക്ഷിതമായി നിലനിർത്താൻ റിപ്പോർട്ടുകൾ സഹായിക്കുന്നു
-  description: Report {user} to Hub Staff or InterChat Staff.
+  prompt: Report this message to our moderation team.
   buttons:
     toStaff: സ്റ്റാഫിനെ അറിയിക്കുക
     toHub: ഹബ്ബിനെ അറിയിക്കുക
@@ -675,6 +898,7 @@ welcomeMessage:
     connections: '🔗 കണക്ഷനുകൾ'
     hubPageLabel: "{link_icon} Hub Page"
     hubPageValue: "[View on InterChat]({hubUrl})"
+    createHint: "Want to start your own? Use `/hub create`."
   rules:
     title: "{rules_icon} {hubName} - Rules"
     guidelines: "Please adhere to the guidelines @ {guidelinesUrl}"
@@ -691,8 +915,10 @@ welcomeMessage:
 infractions:
   description: ഉപയോക്താവോ സെർവറോ ഫിൽട്ടർ ചെയ്‌ത ഒരു ഹബ്ബിലെ ലംഘനങ്ങൾ കാണുക.
   buttons:
-    userInfractions: ഉപയോക്തൃ ലംഘനങ്ങൾ
-    serverInfractions: സെർവർ ലംഘനങ്ങൾ
+    allInfractions: All
+    userInfractions: Users
+    serverInfractions: Servers
+    clearFilter: Clear filter
   titles:
     base: ലംഘനങ്ങൾ · {hubName}
     userList: ഉപയോക്തൃ ലംഘനങ്ങൾ · {hubName}
@@ -701,6 +927,7 @@ infractions:
     serverSpecific: സെർവർ {serverId}-ന്റെ ലംഘനങ്ങൾ · {hubName}
   descriptions:
     base: ഈ ഹബ്ബിനായി കാണേണ്ട ലംഘനങ്ങൾ തിരഞ്ഞെടുക്കുക.
+    empty: No moderation records found.
     userListEmpty: ഈ ഹബ്ബിൽ ഉപയോക്തൃ ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
     serverListEmpty: ഈ ഹബ്ബിൽ സെർവർ ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
   labels:
@@ -816,6 +1043,42 @@ staff:
     notFound: പൊരുത്തപ്പെടുന്ന ബ്ലാക്ക്‌ലിസ്റ്റ് എൻട്രി കണ്ടെത്തിയില്ല.
     removed: കരിമ്പട്ടിക എൻട്രി നീക്കം ചെയ്‌തു.
 hub:
+  directory:
+    title: "## {globe} Discover Hubs — {sortEmoji} {sort}"
+    page: "Page {current} of {total} • {count} public hubs"
+    searching: 'Searching: "{query}"'
+    connectHint: "Choose Connect, or use `/hub connect hub:<name>`."
+    connect: Connect
+    details: Details
+    serverOnly: Open this directory inside a server to connect a channel.
+    sortPlaceholder: Sort public hubs
+    empty: No public hubs are available yet. Create the first one with `/hub create`.
+    emptySearch: 'No public hubs match "{query}". Try a broader search.'
+    search:
+      title: Search public Hubs
+      label: Search
+      placeholder: Search names and descriptions
+    sorts:
+      alive:
+        label: Recommended
+        description: Healthy conversation, people, and recent growth
+      active:
+        label: Active now
+        description: Most conversation and people in the last 24 hours
+      growing:
+        label: Growing
+        description: Most new server connections this week
+      big:
+        label: Biggest
+        description: Most currently connected servers
+      new:
+        label: New
+        description: Recently created public communities
+    metrics:
+      servers: "{activity} {count} servers"
+      messages: "💬 {count}/week"
+      people: "👥 {count}/day"
+      growth: "+{count} this week"
   rules:
     manage:
       description: Manage your hub's community rules and guidelines below.
@@ -848,8 +1111,8 @@ hub:
         refreshError: An error occurred while refreshing.
         deletionCancelled: Cancelled
         deletionCancelledDescription: Rule deletion has been cancelled.
-        noHub: This command must be used in a connected channel or specify a hub name.
-        notConnected: This channel is not connected to any hub.
+        noHub: "This command must be used in a connected channel or specify a hub name."
+        notConnected: "This channel is not connected to any hub."
       warnings:
         deleteWarning: Warning
         deleteWarningDescription: This action cannot be undone.
@@ -877,9 +1140,12 @@ hub:
   lock:
     announceTitle: ഹബ് ലോക്ക് ചെയ്തു
     announceDescription: "This hub has been locked by a moderator.\n\nOnly moderators can send messages now."
+    successTitle: ഹബ് ലോക്ക് ചെയ്തു
+    successDescription: "**{hub}** has been locked. New members cannot join and messages are paused."
   unlock:
     announceTitle: ഹബ് അൺലോക്ക് ചെയ്തു
     announceDescription: "This hub has been unlocked. Invites and messages are now enabled."
+    successTitle: ഹബ് അൺലോക്ക് ചെയ്തു
     successDescription: "**{hub}** has been unlocked. New members can now join."
   announcement:
     webhookUsername: "{hubName} | Hub Announcement"
@@ -921,6 +1187,33 @@ hub:
       title: Disconnect Server
     errors:
       noPermission: You must be a hub admin to view this.
+  history:
+    title: "History — {hubName}"
+    subtitle: Choose what to review
+    view: View
+    retry: Retry
+    tabs:
+      servers: Servers
+      config: Config
+      activity: പ്രവർത്തനം
+    cards:
+      servers: Servers
+      config: Config changes
+      activity: പ്രവർത്തനം
+    descriptions:
+      servers: Connected servers and health
+      config: Settings, staff and rules
+      activity: Joins, leaves and renames
+    requires:
+      manageConnections: Requires Manage Connections
+      viewLogs: Requires View Logs
+    activity:
+      title: "Server activity — {hubName}"
+      empty: No server activity yet. Joins, leaves and renames for this hub's servers will show up here.
+      error: Server activity is temporarily unavailable.
+      renamed: Renamed
+      newOwner: New owner
+      left: Left InterChat
   disconnect:
     title: വിച്ഛേദിച്ചു!
     description: ഹബ്ബിൽ നിന്ന് വിച്ഛേദിച്ചു.
@@ -935,6 +1228,7 @@ hub:
   create:
     title: Let's Get You Started!
     description: Pick a name, short-description, description & visibility for your hub.
+    nextStep: You can connect this channel now or finish setup later.
     whatsAHub: |
       ## ❓ What's a Hub, anyway?
       Think of a Hub as a **room** created by someone.
@@ -952,8 +1246,44 @@ hub:
       Hubs are a surprisingly simple concept.
 
       Let's get started!
+  home:
+    title: "{hubName} — Hub Home"
+    nextSteps: Your next steps
+    status:
+      noChannels: "Your hub is created. Connect its first channel to give it a home."
+      oneChannel: "One server is connected. Your hub is ready for another community to join."
+      live: "Your hub is live with {count} connected servers. Messages can now travel between communities."
+    tasks:
+      channel:
+        title: Connect your first channel
+        description: Pick the channel where your community will meet other servers.
+        complete: First channel connected
+        completeDescription: "{count} connected server(s). You can add more whenever you are ready."
+      rules:
+        title: Set community rules
+        description: Give new communities clear expectations before they join.
+        complete: Community rules are ready
+        completeDescription: "{count} rule(s) will appear when a server joins."
+      invite:
+        title: Invite your first server
+        description: A second connected server is what turns this into a cross-server conversation.
+        liveTitle: Your hub is live
+        liveDescription: Keep growing when it feels right, create an invite for another community.
+    buttons:
+      connect: Connect here
+      invite: Create invite
+      rules: Set rules
+      servers: Connected servers
+      settings: All settings
   wizard:
     start: Start
+    buttons:
+      details: Add hub details
+      createAndConnect: Create and Connect
+      createOnly: Create Hub Only
+      learn: How Hubs Work
+      connectHere: Connect this channel
+      connectLater: Create without connecting
     name:
       description: Pick a unique name for your hub. Max 100 chars.
     tagline:
@@ -963,14 +1293,23 @@ hub:
       label: പൂർണ്ണ വിവരണം
       description: Describe your hub in detail (20-1000 characters)
     visibility:
+      title: Who can find this hub?
       unlisted:
+        label: അൺലിസ്റ്റഡ്
         desc: Not in directory.
       public:
+        label: പബ്ലിക്
         desc: Discoverable.
       private:
+        label: പ്രൈവറ്റ്
         desc: Invite-only.
+    connection:
+      title: Give your hub a home
+      description: Connect this channel now, or finish that step from Hub Home later.
     steps:
       progress: സ്റ്റെപ്പ് {current}/{total}
+      basics: Step 1 of 3 · Start with the basics
+      access: Step 2 of 3 · Choose access and your first channel
       step1:
         modalTitle: "Hub Details"
         visibilityLabel: Hub Visibility
@@ -1019,6 +1358,9 @@ hub:
       title: ഹബ് കോൺഫിഗറേഷൻ സംഗ്രഹം
       description: "സൃഷ്ടിക്കുന്നതിന് മുമ്പ് നിങ്ങളുടെ ഹബ് ക്രമീകരണങ്ങൾ അവലോകനം ചെയ്യുക:"
       nameAndDescription: പേരും വിവരണം
+      connection: First Step
+      connectNow: Connect this channel after creation
+      connectLater: Create the hub first; connect a channel later
       rulesCount: "{count} നിയമങ്ങൾ സജ്ജീകരിച്ചു"
       rulesNone: നിയമങ്ങളില്ല (പിന്നീട് ചേർക്കാം)
       welcomeDefault: ഡിഫോൾട്ട് സ്വാഗത സന്ദേശം
@@ -1030,6 +1372,11 @@ hub:
       loadingDescription: ഞങ്ങൾ എല്ലാം സജ്ജീകരിക്കുന്നതുവരെ ദയവായി കാത്തിരിക്കൂ...
       success: ഹബ് വിജയകരമായി സൃഷ്ടിച്ചു!
       successDescription: "{hubName} ഇപ്പോൾ ലൈവ് ആണ്! 🎉"
+      nextStepsTitle: അടുത്തത് എന്താണ്?
+      nextStepsDescription: Add rules, a welcome message, modules, and moderation logging whenever you're ready.
+      connectNowHint: This channel is being connected now. Messages sent here will be visible to everyone in the hub.
+      connectFailedHint: "Your hub was created, but this channel could not be connected. Use `/hub connect hub:{hubName}` after checking the bot's channel permissions."
+      connectLaterHint: "When you're ready, connect a channel with `/hub connect hub:{hubName}`."
       dashboardLink: നിങ്ങളുടെ ഹബ് മാനേജ് ചെയ്യുക
       publicPageLink: ഡയറക്ടറിയിൽ കാണുക
       nextSteps: അടുത്തത് എന്താണ്?
@@ -1078,6 +1425,9 @@ hub:
       locked:
         title: ഹബ് ലോക്ക് ചെയ്തു
         description: This hub is currently locked and cannot be joined.
+      missingPermissions:
+        title: Missing Permissions
+        description: "You need the **Manage Messages** permission in this server to connect a channel to a hub."
   announcements:
     title: ഹബ് അറിയിപ്പുകൾ
     description: "Create a **one time** announcement that sends in all connected channels."
@@ -1098,9 +1448,9 @@ hub:
       rules:
         label: ഹബ് നിയമങ്ങൾ
         description: നിങ്ങളുടെ ഹബ്ബിന്റെ കമ്മ്യൂണിറ്റി നിയമങ്ങളും മാർഗ്ഗനിർദ്ദേശങ്ങളും നിയന്ത്രിക്കുക
-      team:
-        label: ടീം മാനേജ്‌മെന്റ്
-        description: നിങ്ങളുടെ ഹബ്ബിന്റെ ടീമിനെയും സ്റ്റാഫ് അനുമതികളെയും നിയന്ത്രിക്കുക
+      staff:
+        label: സ്റ്റാഫ്
+        description: Manage your hub's staff and roles
       modules:
         label: മൊഡ്യൂളുകൾ
         description: നിങ്ങളുടെ ഹബ്ബിനുള്ളിൽ അധിക മൊഡ്യൂളുകൾ പ്രവർത്തനക്ഷമമാക്കുകയോ പ്രവർത്തനരഹിതമാക്കുകയോ ചെയ്യുക
@@ -1116,6 +1466,9 @@ hub:
       transfer:
         label: ഉടമസ്ഥാവകാശം കൈമാറുക
         description: നിങ്ങളുടെ ഹബ്ബിന്റെ ഉടമസ്ഥാവകാശം മറ്റൊരു വ്യക്തിക്ക് കൈമാറുക
+      delete:
+        label: Delete hub
+        description: Permanently delete this hub and disconnect all servers
       announcements:
         label: ഷെഡ്യൂൾ ചെയ്ത അറിയിപ്പുകൾ
         description: നിങ്ങളുടെ ഹബ്ബിനായി ഓട്ടോമാറ്റിക് ഷെഡ്യൂൾ ചെയ്ത അറിയിപ്പുകൾ കോൺഫിഗർ ചെയ്യുക
@@ -1127,10 +1480,11 @@ hub:
   all:
     title: ഇന്റർചാറ്റ് ഹബ്ബുകൾ
     description: Search through a list of all our hubs!
+    createHint: "Want your own shared channel? Use `/hub create`."
     filteredBy: "ഫലങ്ങൾ ഫിൽട്ടർ ചെയ്തത്: {filter}"
     errors:
-      notFound: Uh oh! I was unable to find any hubs.
-      invalidFilter: ഒന്നും മിണ്ടുന്നില്ല... നിങ്ങളുടെ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന ഹബ്ബുകളൊന്നുമില്ല.
+      notFound: "Uh oh! I was unable to find any hubs."
+      invalidFilter: "ഒന്നും മിണ്ടുന്നില്ല... നിങ്ങളുടെ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന ഹബ്ബുകളൊന്നുമില്ല."
     modal:
       title: സെർച്ച് ഫിൽട്ടർ
       searchFilter:
@@ -1215,15 +1569,20 @@ messageInfo:
   noConnection: കണക്ഷൻ വിവരങ്ങളൊന്നും ലഭ്യമല്ല
 leaderboard:
   title: Leaderboard
-  noActivity: No Activity
-  noActivityDescription: No activity recorded for this period.
+  noActivity: No activity yet
+  noActivityDescription: Nothing recorded for this period. Be the first!
+  users: Users
+  servers: Servers
+  streaks: Streaks
   messages: messages
-  calls: calls
-  votes: votes
-  streak: day streak
+  unit:
+    calls: calls
+    votes: votes
+    streak: day streak
+  calls: Calls
+  votes: വോട്ടുകൾ
   selectPeriod: Select time period
-  selectType: Select leaderboard type
-  yourRank: Your Rank
+  selectType: Show…
   periods:
     thisMonth: This Month
     thisMonth.description: Current month statistics
@@ -1234,14 +1593,12 @@ leaderboard:
   buttons:
     users: Users
     servers: Servers
-    calls: Calls
-    votes: വോട്ടുകൾ
-    streaks: Streaks
   errors:
     alreadyShowingUsers: Already showing users leaderboard.
     alreadyShowingServers: Already showing servers leaderboard.
     alreadyShowingPeriod: Already showing this time period.
-    alreadyShowingType: Already showing this leaderboard type.
+    alreadyShowingType: Already showing that leaderboard.
+    unavailable: Leaderboards are unavailable right now. Please try again in a moment.
 profile:
   achievements:
     placeholder: ഇവിടെ നേട്ടങ്ങൾ
@@ -1249,22 +1606,203 @@ my:
   hubs:
     title: നിങ്ങളുടെ ഹബുകൾ
     description: "നിങ്ങളുടെ ഉടമസ്ഥതയിലുള്ളതോ മോഡറേറ്റ് ചെയ്യുന്നതോ ആയ ഹബുകൾ ഇതാ:"
+  activity:
+    day: "{count} day"
+    days: "{count} days"
+    unranked: Unranked
+    closed: Activity dashboard closed.
+    utcFooter: Daily streaks use UTC.
+    tabs:
+      overview: Overview
+      hubs: Hubs
+      calls: Calls
+    timeline:
+      day: "DAY {count}"
+      today: TODAY
+    overview:
+      title: KEEP THE CONNECTION GOING
+      securedTitle: TODAY'S CONNECTION IS COMPLETE
+      startTitle: START A NEW CONNECTION
+      securedSummary: "Your streak is {streak}. Come back tomorrow to keep it moving."
+      activeSummary: "Your streak is {streak}. One more active day keeps it alive."
+      freezeSummary: "Your {streak} streak can still be saved. Qualify today to use one freeze."
+      inactiveSummary: "Your previous streak was {streak}. Qualify today to start again."
+      newSummary: One active day starts your first InterChat streak.
+      stats: "❄️ {freezes} freezes · Best streak: {best}\n🏆 Streak rank: {rank}"
+    path:
+      title: TODAY'S PATH
+      hubs: "Send Hub messages  **{current}/{threshold}**"
+      call: Complete a 60+ second Call
+      unavailable: Hub message progress is temporarily unavailable
+      secured: Today's streak is secured
+      tomorrow: Your next streak window begins tomorrow.
+      freeze: Qualifying today will use one freeze and preserve your streak.
+      nextMessages: "Your next move: send {count} more Hub messages."
+      nextStart: "Send 5 Hub messages or complete a 60+ second Call."
+      nextUnavailable: A 60+ second Call still qualifies today.
+    hubs:
+      title: YOUR HUB PASSPORT
+      messages: "{count} messages"
+      places: PLACES YOUR WORDS HAVE VISITED
+      homeBase: YOUR HOME BASE
+      homeStats: "{count} messages · {share}% of this month"
+      otherPlaces: OTHER PLACES
+      empty: Send accepted Hub messages and the places you visit will appear here.
+      summary: "{count} active Hubs this month\n🏆 Global message rank: {rank}"
+      delay: Counts may be delayed by about 30 seconds.
+    calls:
+      title: KEEP THE CONVERSATION GOING
+      completed: COMPLETED CALLS
+      status: CONNECTION STATUS
+      qualifies: One qualifying Call secures today's streak.
+      currentStreak: Current streak
+      previousStreak: Previous streak
+      stats: "🏆 Call rank: {rank}\n🔥 {streakLabel}: {streak}\n❄️ Freezes available: {freezes}"
+      shared: Calls and Hub messages share one streak.
 stats:
-  title: InterChat Statistics
-  fields:
-    bot: Bot
-    botValue: "> **Uptime:** <t:{uptime}:R>\n> **Servers:** {servers}\n> **Members:** {members}"
-    system: System
-    systemValue: "> **OS:** {os}\n> **Python:** {python}\n> **CPU Cores:** {cores}\n> **RAM Usage:** {ram}mb"
-  footer: InterChat | Version {version}
+  title: InterChat
+  description: Live numbers from across the network.
+  network: Right now
+  networkValue: "> **Servers** {servers}\n> **Members** {members}\n> **Hubs** {hubs}"
+  bot: This bot
+  botValue: "> **Ping** {ping}ms · **Uptime** <t:{uptime}:R> · **v{version}**"
+  footer: InterChat • v{version}
   shard:
-    title: ഷാർഡ് വിവരങ്ങൾ
+    title: Shard information
+    row: "> **Shard #{id}**: {status}\n> **Ping** {ping}ms · **Servers** {guilds}"
+    system: "> **OS** {os}\n> **Python** {python}\n> **CPU cores** {cores}\n> **RAM** {ram}MB"
     statusReady: തയ്യാറാണ്
     statusProvisioning: Provisioning
-    current: "Current Shard: {id}"
+    current: "You are on shard #{id}"
 invite:
-  title: ഹേയ്!
-  description: Thanks for choosing InterChat. Need help? Join our support server.
+  title: Add InterChat to your server
+  description: Free, and takes about a minute.
+  steps: |-
+    > **1.** Press **Add to Server** below
+    > **2.** Pick your server
+    > **3.** Run `/setup` in the channel you want to use
+  footer: You need **Manage Server** on the server you pick.
+rules:
+  title: InterChat Rules
+  body: These rules apply everywhere you use InterChat, in hubs and calls alike.
+  tabs:
+    short: The rules
+    full: Full guidelines
+    moderation: മോഡറേഷൻ
+  short: |-
+    > **1.** Treat people with respect. If someone says stop, stop.
+    > **2.** Don't attack people for who they are. No slurs.
+    > **3.** No threats, and don't share private information.
+    > **4.** No sexual content. Never involving minors.
+    > **5.** No spam, and don't ruin the conversation.
+    > **6.** Don't evade bans or send fake reports.
+    > **7.** Names must follow these rules too.
+  rules:
+    title: The Rules
+    commonSense: |
+      ## Use common sense
+      These rules can't cover every possible situation.
+
+      If something is obviously being done to hurt, threaten, harass, sexualize, or seriously disrupt another person, don't assume it's allowed just because you can't find the exact wording in these rules.
+    body: |
+      ### 1. Treat people with respect
+      **Banter is allowed. Harassment isn't.**
+      - Joking and banter are fine, but don't turn them into repeated insults, harassment, or deliberate attempts to upset someone.
+      - If someone asks you to stop, **stop**.
+      - Don't repeatedly provoke, mock, or attack someone, especially after they've asked you to stop.
+      ### 2. Don't attack people for who they are
+      **Bigotry is not allowed.**
+      - Don't attack, insult, or degrade someone because of their race, ethnicity, nationality, religion, gender, sexuality, disability, or similar traits.
+      - Slurs aren't allowed, even if you claim you can use them because they apply to you.
+      ### 3. Keep people safe
+      **No threats or dangerous behavior.**
+      - Don't threaten to hurt, kill, or sexually assault someone.
+      - Don't encourage someone to hurt themselves.
+      - Don't encourage or help someone dox, swat, attack, or otherwise harm another person.
+
+      **Don't share private information.**
+      - Don't post or threaten to post someone's address, phone number, real name, location, IP address, or other private information.
+      ### 4. Keep sexual content appropriate
+      **Don't sexualize minors.**
+      - Sexual jokes, stories, comments, or conversations involving minors aren't allowed.
+      - Grooming, attempting to obtain sexual content from a minor, or other sexual behavior directed at minors is treated especially seriously.
+
+      **Keep explicit sexual content out of InterChat.**
+      - No sexting, sexual roleplay, graphic sexual messages, or similar content.
+      - Flirting is fine when it's welcome. If someone isn't interested, **stop**.
+      ### 5. Don't ruin the conversation
+      **No spam or deliberate disruption.**
+      - Don't flood chats, send huge walls of text, spam messages or emojis, or intentionally make a conversation unusable.
+      ### 6. Don't interfere with moderation
+      **Don't evade moderation.**
+      - Don't use another account or another method to get around an active ban or restriction.
+
+      **Don't abuse the report system.**
+      - Reports should be honest and made in good faith.
+      - Don't make fake reports to get someone punished.
+      ### 7. Keep your identity appropriate
+      **Names must follow the rules too.**
+      - Usernames, nicknames, server names, and other names shown through InterChat must follow these rules.
+  enforcement: |
+    ## How moderation works
+    Moderators look at **what happened, how serious it was, whether it was intentional, who it was directed at, whether the person stopped when asked, and their recent history.**
+    ### The punishment ladder is:
+    ```Warn → 6h → 24h → 7d → 14d → 30d → Permanent```
+    *Punishments may not always be linear, and often depend on the severity and context of the violation. Normal infractions older than 90 days should generally automatically expire and not increase a punishment.*
+startHere:
+  nav:
+    help: Help
+    invite: Invite
+    dashboard: Dashboard
+    stats: Stats
+    about: About
+  descriptions:
+    help: Explore every command InterChat has.
+    about: What InterChat is, and how it works.
+    invite: Add InterChat to your server.
+    rules: Read the rules for hubs and calls.
+    stats: See live InterChat numbers.
+    feedback: Send a suggestion or a bug report.
+    report: Learn how to report a message.
+    dashboard: Open the web dashboard.
+    leaderboard: See the top callers and servers.
+    prefix: Change this server's command prefix.
+    vote: Vote for InterChat and earn a badge.
+dashboard:
+  description: Manage your hubs, servers and calls from your browser. No commands needed.
+prefix:
+  updatedTitle: Prefix updated
+  updated: This server now uses `{prefix}`. Try `/help`.
+  resetTitle: Prefix reset
+  reset: This server is back to the default prefix `{prefix}`.
+  error:
+    guildOnly: Prefixes are per-server, so this only works inside a server.
+    tooLong: A prefix can be at most 10 characters long.
+vote:
+  title: Vote for InterChat
+  description: It takes 10 seconds, and it helps more servers find us.
+  rewards: |-
+    ## What you get for 12 hours
+    > **Server emojis**: use any emoji in your messages
+    > **Voter badge**: shown on your InterChat profile
+  alreadyVoted: |-
+    ## 🎉 Thanks for voting!
+    You can vote again **{next}**.
+  thanks:
+    title: Thank you for voting!
+    intro: Your vote is how more servers find InterChat. Genuinely, thanks for taking the 10 seconds.
+    activeHeading: Active for the next 12 hours
+    emojiTitle: Server emojis
+    emojiBody: Use emoji from any server in your messages.
+    roleTitle: Voter role
+    roleBody: Granted in the support server, removed when your vote lapses, so re-vote to keep it.
+    keepHeading: Yours to keep
+    badgeTitle: Voter badge
+    badgeBody: Now on your InterChat profile.
+    freezeTitle: A streak freeze
+    freezeBody: Banked against a missed day, up to 2.
+    supportButton: Support server
+    footer: "Vote #{count} · next vote available {next}"
 services:
   hub:
     validation:
@@ -1361,31 +1899,32 @@ blacklist:
       removeFailed: "{cross} Error removing item: {error}"
 commands:
   suggestion:
-    title: Suggestion / Bug Report
+    title: Send feedback
     overview:
-      label: Overview
-      placeholder: Briefly describe your suggestion or bug...
+      label: Summary
+      placeholder: "One line: what went wrong, or what you'd like"
     description:
       label: വിവരണം
-      placeholder: Provide full details of your suggestion or bug...
+      placeholder: "Tell us what happened, step by step"
     category:
-      label: Category
+      label: "What's this about?"
       options:
-        bug: Bug Report
-        bugDesc: Report an issue you've found
-        suggestion: Suggestion
-        suggestionDesc: Suggest a new feature or improvement
+        bug: Something is broken
+        bugDesc: Report a problem you ran into
+        suggestion: I have an idea
+        suggestionDesc: Suggest a feature or an improvement
     errorId:
-      label: Error ID (if applicable)
-      placeholder: Paste the error ID here...
+      label: Error ID (optional)
+      placeholder: Paste the error ID from the error message
     messages:
-      submitted: Your feedback has been received and will be reviewed.
-      success: "{tick} Thank you for your feedback! It has been submitted successfully."
-    errors:
-      internal: An error occurred while submitting your feedback. Please try again.
+      success: "{tick} Thanks! Your feedback was sent to the InterChat team."
   report:
-    title: എങ്ങനെ റിപ്പോർട്ട് ചെയ്യാം
-    description: "Right-click on a message and select **Apps → Report**."
+    title: How to report a message
+    description: |-
+      > **1.** Right-click the message
+      > **2.** Go to **Apps → Report**
+      > **3.** Pick a reason. We'll send it to the right team
+    footer: Reports go to the hub's moderators, or to InterChat staff.
     loadingGif: The GIF above may take a moment to load.
 userphone:
   commands:
@@ -1485,3 +2024,12 @@ server:
       title: Auto Requeue on Hangup
       description: Automatically start a new call when the other side hangs up. Only works if you were recently active in the call.
       ignoreSuccess: "{tick} Report `{id}` has been marked as ignored."
+    lobbyChannels:
+      title: Allowed Lobby Channels
+      description: Restrict call, skip, and hangup to selected text channels. When no channels are selected, these commands work everywhere.
+      selectPlaceholder: Select text channels
+      currentlyAllowed: Commands currently allowed in
+      everywhere: Lobby commands work in every text channel when no channels are selected.
+      unsaved: Unsaved changes — press Save Changes to apply them.
+      saved: Lobby channel restrictions saved.
+      manageChannelsRequired: You need the Manage Channels permission to edit lobby channels.
